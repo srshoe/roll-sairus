@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rarity Roll</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <button id="rollButton">Roll</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Array of rankings
+        const rankings = [
+            'Common',
+            'Uncommon',
+            'Rare',
+            'Super Rare',
+            'Super Duper Rare',
+            'Uber Duper Pooper Rare',
+            'Sigma Rare',
+            'Impossible'
+        ];
+
+        // Get references to the button and result div
+        const rollButton = document.getElementById('rollButton');
+        const resultDiv = document.getElementById('result');
+
+        // Function to handle the roll
+        rollButton.addEventListener('click', () => {
+            // Get a random ranking
+            const randomIndex = Math.floor(Math.random() * rankings.length);
+            const randomRanking = rankings[randomIndex];
+
+            // Show the ranking
+            resultDiv.textContent = `You rolled: ${randomRanking}`;
+        });
+    </script>
+
+</body>
+</html>
